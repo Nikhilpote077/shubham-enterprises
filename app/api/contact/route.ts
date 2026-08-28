@@ -88,7 +88,7 @@ export async function POST(request: Request) {
   }
 
   try {
-    await resend.emails.send({
+    const { error: resendError } = await resend.emails.send({
       // TODO: switch to an address on your verified domain once set up in
       // Resend, e.g. "Shubham Enterprises <enquiries@shubhamenterprises.com>"
       from: "Shubham Enterprises Website <onboarding@resend.dev>",
@@ -105,6 +105,7 @@ export async function POST(request: Request) {
         <p>${escapeHtml(message).replace(/\n/g, "<br>")}</p>
       `,
     });
+    if (resendError) throw resendError;
   } catch (err) {
     console.error("Resend send failed:", err);
     return NextResponse.json(
