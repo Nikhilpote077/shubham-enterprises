@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+:root {
+  /* Core palette — derived from real zinc-passivate finish colours, not decoration */
+  --color-graphite: #14171a;
+  --color-graphite-2: #1d2126;
+  --color-graphite-3: #262b31;
+  --color-steel: #4a5a68;
+  --color-steel-light: #8b98a3;
+  --color-zinc-gold: #c9a227;
+  --color-zinc-gold-bright: #e4be3f;
+  --color-blue-bright: #6e93b0;
+  --color-paper: #f2f2ef;
+  --color-paper-2: #e7e7e2;
+  --color-ink: #14171a;
+  --color-ink-soft: #4b4f54;
+  --color-line: rgba(20, 23, 26, 0.12);
+  --color-line-dark: rgba(242, 242, 239, 0.14);
+}
+
+@theme inline {
+  --color-graphite: var(--color-graphite);
+  --color-graphite-2: var(--color-graphite-2);
+  --color-graphite-3: var(--color-graphite-3);
+  --color-steel: var(--color-steel);
+  --color-steel-light: var(--color-steel-light);
+  --color-zinc-gold: var(--color-zinc-gold);
+  --color-zinc-gold-bright: var(--color-zinc-gold-bright);
+  --color-blue-bright: var(--color-blue-bright);
+  --color-paper: var(--color-paper);
+  --color-paper-2: var(--color-paper-2);
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+
+  --font-display: var(--font-barlow-condensed);
+  --font-sans: var(--font-plex-sans);
+  --font-mono: var(--font-plex-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection {
+  background: var(--color-zinc-gold);
+  color: var(--color-graphite);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-zinc-gold);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Signature motif: the finish-swatch rail divider used between sections */
+.swatch-rule {
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    #c9a227 0 20%,
+    #8fa6b8 20% 40%,
+    #2b2e31 40% 60%,
+    #5c5a3d 60% 80%,
+    #b9bec2 80% 100%
+  );
+}
+
+.text-balance {
+  text-wrap: balance;
+}
