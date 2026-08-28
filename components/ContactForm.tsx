@@ -144,21 +144,6 @@ function Field({
 
 function inputClass(hasError: boolean) {
   return cn(
-    "w-full border bg-white/70 px-3.5 py-2.5 text-sm text-graphite outline-none transition-colors placeholder:text-ink-soft/50",
-    hasError ? "border-red-500" : "border-graphite/20 focus:border-zinc-gold"
-  );
-}
-// Before
-function inputClass(hasError: boolean) {
-  return cn(
-    "w-full border bg-white/70 px-3.5 py-2.5 text-sm text-graphite outline-none transition-colors placeholder:text-ink-soft/50",
-    hasError ? "border-red-500" : "border-graphite/20 focus:border-zinc-gold"
-  );
-}
-
-// After
-function inputClass(hasError: boolean) {
-  return cn(
     "w-full border bg-white/70 px-3.5 py-2.5 text-base sm:text-sm text-graphite outline-none transition-colors placeholder:text-ink-soft/50",
     hasError ? "border-red-500" : "border-graphite/20 focus:border-zinc-gold"
   );
